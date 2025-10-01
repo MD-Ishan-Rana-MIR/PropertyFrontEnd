@@ -64,8 +64,11 @@ export default function BannerPage() {
               height={2000}
               className="w-full h-[600px] object-cover"
             />
+            {/* Black Overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+
             {/* Heading Text at Top */}
-            <div className="absolute top-28 left-1/2 -translate-x-1/2  ">
+            <div className="absolute top-28 left-1/2 -translate-x-1/2">
               <h2 className="text-4xl font-bold text-white text-center drop-shadow-lg">
                 {slide.heading}
               </h2>
@@ -77,13 +80,13 @@ export default function BannerPage() {
       {/* Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white cursor-pointer "
+        className="absolute top-1/2 left-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white cursor-pointer"
       >
         <ChevronLeft className=" cursor-pointer " size={28} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white cursor-pointer "
+        className="absolute top-1/2 right-5 -translate-y-1/2 bg-black/40 p-3 rounded-full text-white cursor-pointer"
       >
         <ChevronRight className=" cursor-pointer " size={28} />
       </button>
@@ -160,7 +163,7 @@ export default function BannerPage() {
           </div>
 
           {/* Search Button */}
-          <button className="flex items-center gap-2 btnColor text-white px-5 py-2 rounded-lg hover:bg-blue-700 cursor-pointer ">
+          <button className="flex items-center gap-2 btnColor text-white px-5 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
             <Search size={18} /> Search
           </button>
         </div>
