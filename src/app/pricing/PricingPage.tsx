@@ -19,7 +19,7 @@ export default function PricingPage() {
                         <p className="text-3xl font-bold mb-4">
                             $7.49<span className="text-base font-normal">/mo</span>
                         </p>
-                        <ul className="text-gray-300 text-sm text-left space-y-2 mb-6 max-h-80 overflow-y-auto">
+                        <ul className="text-gray-300 text-sm text-left space-y-2 mb-6 max-h-80 ">
                             {[
                                 "Location Search",
                                 "Landowner Names",
@@ -31,10 +31,6 @@ export default function PricingPage() {
                                 "Nearby Amenities",
                                 "Ownership Details",
                                 "GIS Layers",
-                                "Satellite Imagery",
-                                "Property Photos",
-                                "Recent Sales Data",
-                                "Custom Reports",
                                 "Alerts & Notifications",
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-center gap-2">
@@ -53,7 +49,7 @@ export default function PricingPage() {
                         <p className="text-3xl font-bold mb-4">
                             $9.49<span className="text-base font-normal">/mo</span>
                         </p>
-                        <ul className="text-gray-100 text-sm text-left space-y-2 mb-6 max-h-80 overflow-y-auto">
+                        <ul className="text-gray-100 text-sm text-left space-y-2 mb-6 max-h-80 ">
                             {[
                                 "Everything in Acres Plus",
                                 "Data Layers",
@@ -66,10 +62,6 @@ export default function PricingPage() {
                                 "Property Alerts",
                                 "PDF Reports",
                                 "Ownership History",
-                                "Parcel Analytics",
-                                "Neighborhood Insights",
-                                "Property Valuation",
-                                "API Access",
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-center gap-2">
                                     <Check className="text-white" size={16} /> {item}
@@ -85,7 +77,7 @@ export default function PricingPage() {
                     <div className="bg-gray-800 rounded-2xl p-8 flex-1 shadow-lg">
                         <h3 className="text-lg font-semibold text-green-400 mb-2">Acres Enterprise</h3>
                         <p className="text-3xl font-bold mb-4">Custom</p>
-                        <ul className="text-gray-300 text-sm text-left space-y-2 mb-6 max-h-80 overflow-y-auto">
+                        <ul className="text-gray-300 text-sm text-left space-y-2 mb-6 max-h-80 ">
                             {[
                                 "Everything in Acres Pro",
                                 "API Integration",
@@ -98,10 +90,6 @@ export default function PricingPage() {
                                 "Automated Reports",
                                 "Priority SLA Support",
                                 "Custom Workflows",
-                                "Third-Party Integrations",
-                                "Extended Export Options",
-                                "Training & Onboarding",
-                                "Data Security Controls",
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-center gap-2">
                                     <Check className="text-green-400" size={16} /> {item}

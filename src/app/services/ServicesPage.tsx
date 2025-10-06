@@ -1,19 +1,17 @@
 "use client";
-import DrawPolygonArea from "@/components/home/Map";
-import { MapPin, LayoutDashboard, Globe, Database, FileText } from "lucide-react";
-import dynamic from "next/dynamic";
+
+import {LayoutDashboard, Globe, Database, FileText } from "lucide-react";
 import Image from "next/image";
 
-// Lazy-load Mapbox (only if you want interactive map)
-// const Map = dynamic(() => import("@/components/MapSection"), { ssr: false });
+
 
 export default function ServicesPage() {
     return (
         <main className="bg-gray-900 text-white min-h-screen">
             {/* ========= HERO SECTION ========= */}
-            <section className="relative flex flex-col md:flex-row items-center justify-between py-16 px-6 md:px-16 bg-gray-900 text-white overflow-hidden">
+            <section className="relative flex flex-col md:flex-row items-center justify-between py-16 lg:px-6 md:px-16 bg-gray-900 text-white overflow-hidden">
                 {/* Left Side Image */}
-                <div className="relative w-full md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden ">
+                <div className="relative w-[100%]  md:w-1/2 h-[300px] md:h-[400px] rounded-2xl overflow-hidden mt-16  ">
                     <Image
                         src="/large-parcel-card.webp"
                         alt="Land visualization"
@@ -36,7 +34,7 @@ export default function ServicesPage() {
             </section>
 
             {/* ========= SCOPE OF WORK ========= */}
-            <section className="max-w-6xl mx-auto px-6 py-20 relative z-20">
+            <section className="max-w-6xl mx-auto px-4 lg:px-6 lg:py-20 pb-7 relative z-20">
                 <h2 className="text-3xl font-bold text-center mb-12">Scope of Work</h2>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -84,7 +82,7 @@ export default function ServicesPage() {
 
             {/* ========= DELIVERABLES ========= */}
             <section className="bg-green-900/30 py-20">
-                <div className="max-w-6xl mx-auto px-6 text-center">
+                <div className="max-w-6xl mx-auto px-2 lg:px-6 text-center">
                     <h2 className="text-3xl font-bold mb-8">Deliverables</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                         <div className="bg-gray-800 p-6 rounded-2xl">
@@ -136,7 +134,7 @@ export default function ServicesPage() {
                 <p className="text-gray-300 mb-6">
                     Partner with us to design, develop, and deliver your complete land intelligence system.
                 </p>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-xl">
+                <button className="bg-green-500 hover:bg-green-600 cursor-pointer text-white font-semibold py-3 px-8 rounded-xl">
                     Request Proposal
                 </button>
             </section>
