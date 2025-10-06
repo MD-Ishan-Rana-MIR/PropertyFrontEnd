@@ -12,7 +12,6 @@ import MapSections from '@/components/home/MapSections'
 import LadnMap from './LadnMap'
 import MapImageSlider from './MapImageSlider'
 import Faq from './Faq'
-import TrustedByExperts from './TrustedByExperts'
 
 const HomePage = () => {
   return (
@@ -34,7 +33,6 @@ const HomePage = () => {
       {/* process  */}
       <SetupProcess />
       <Faq />
-      <TrustedByExperts />
     </div>
   )
 }
