@@ -2,6 +2,7 @@
 "use client";
 import MaxWidth from "@/components/max-width/MaxWidth";
 import { FaHeadset, FaUserTie, FaDollarSign, FaLandmark } from "react-icons/fa";
+import AnimatedCounter from '../../../node_modules/react-animated-counter/dist/esm/AnimatedCounter';
 
 export default function SetupProcess() {
     return (
@@ -54,31 +55,53 @@ export default function SetupProcess() {
 
                 {/* Bottom Section */}
                 <div className="border-t mt-16 pt-12">
-                    <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 text-center gap-10">
-                        <div>
-                            <h4 className="text-lg font-medium text-gray-800 mb-2">
-                                A unique story in every number
-                            </h4>
-                        </div>
-                        <div>
-                            <p className="text-4xl font-bold text-indigo-600">2019</p>
-                            <p className="text-gray-500 text-sm mt-1">
+                    <div className="max-w-5xl mx-auto item-center px-6 grid grid-cols-1 md:grid-cols-3 text-center gap-10">
+
+                        {/* Founded */}
+                        <div className="flex flex-col items-center text-center">
+                            <p className="text-5xl font-extrabold text-indigo-600 flex items-baseline">
+                                <AnimatedCounter value={2019} color="#635AFC" fontSize="36px" />
+                            </p>
+                            <p className="text-gray-600 text-base mt-2">
                                 When we founded Modernize
                             </p>
                         </div>
-                        <div>
-                            <p className="text-4xl font-bold text-indigo-600">300k+</p>
-                            <p className="text-gray-500 text-sm mt-1">Customers on Modernize</p>
-                        </div>
-                        <div>
-                            <p className="text-4xl font-bold text-indigo-600">25k+</p>
-                            <p className="text-gray-500 text-sm mt-1">
-                                Dashboards built using MetDash
+
+                        {/* Customers */}
+                        <div className="flex flex-col items-center text-center">
+                            <p className="text-5xl font-extrabold text-indigo-600 flex items-baseline">
+                                <AnimatedCounter value={300} color="#635AFC" fontSize="36px" />
+                                <span className="ml-1 text-2xl text-indigo-500">k+</span>
+                            </p>
+                            <p className="text-gray-600 text-base mt-2">
+                                Customers on Modernize
                             </p>
                         </div>
+
+                        {/* Dashboards */}
+                        <div className="flex flex-col items-center text-center">
+                            <p className="text-5xl font-extrabold text-indigo-600 flex items-baseline">
+                                <AnimatedCounter value={25} color="#635AFC" fontSize="36px" />
+                                <span className="ml-1 text-2xl text-indigo-500">k+</span>
+                            </p>
+                            <p className="text-gray-600 text-base mt-2">
+                                Dashboards built using{" "}
+                                <span className="font-semibold text-indigo-600">MetDash</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div className="border-t mt-16 pt-12">
+                    <div>
+                        {/* <div>
+                            <button onClick={() => handleCounterUpdate(false)}>Decrement</button>
+                            <button onClick={() => handleCounterUpdate(true)}>Increment</button>
+                        </div> */}
                     </div>
                 </div>
             </section>
-        </MaxWidth>
+        </MaxWidth >
     );
 }
