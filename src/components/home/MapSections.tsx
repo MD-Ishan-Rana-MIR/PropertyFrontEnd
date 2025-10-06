@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 import Map from './Map';
 
@@ -16,7 +16,8 @@ export default function RealEstateSearch() {
 
     const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
-    const [properties, setProperties] = useState([
+
+    const properties = [
         {
             id: 1,
             address: '205 5th Ave',
@@ -53,7 +54,7 @@ export default function RealEstateSearch() {
             equity: null,
             pricePerSqft: null
         }
-    ]);
+    ]
 
     const [counties] = useState([
         'New Castle County, DE',
@@ -61,27 +62,29 @@ export default function RealEstateSearch() {
         'Sussex County, DE'
     ]);
 
-    const [cities] = useState([
-        'New Garden',
-        'Oxford',
-        'Gamage Point',
-        'Township',
-        'Broadside',
-        'Bear',
-        'Eldon',
-        'Satan',
-        'Alleway',
-        'Township',
-        'Lower Alleways Creek',
-        'Middletown',
-        'Stony'
-    ]);
+    // const [cities] = useState([
+    //     'New Garden',
+    //     'Oxford',
+    //     'Gamage Point',
+    //     'Township',
+    //     'Broadside',
+    //     'Bear',
+    //     'Eldon',
+    //     'Satan',
+    //     'Alleway',
+    //     'Township',
+    //     'Lower Alleways Creek',
+    //     'Middletown',
+    //     'Stony'
+    // ]);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
         const { name, value } = e.target;
         setSearchParams(prev => ({
             ...prev,
-            [name]: value
+            [name]: value,
         }));
     };
 
