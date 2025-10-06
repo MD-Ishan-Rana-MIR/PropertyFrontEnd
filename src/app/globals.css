@@ -159,3 +159,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-button-prev {
+    height: 18px !important;
+    font-weight: 900 !important;
+    color: black !important;
+}
+
+.swiper-button-next {
+     height: 18px !important;
+    font-weight: 900 !important;
+    color: black !important;
+}
