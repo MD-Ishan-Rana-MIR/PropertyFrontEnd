@@ -44,14 +44,42 @@
 }
 
 .textColor {
-  color: #29343D;
+  color: #29343d;
 }
 
 .btnColor {
-  background: #635BFF;
+  background: #635bff;
 }
 .btnText {
-  color: #FFFFFF;
+  color: #ffffff;
+}
+
+.texttitle {
+  color: #181818;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.fly-to-btn {
+  background: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.fly-to-btn:hover {
+  background: #eee;
 }
 
 :root {

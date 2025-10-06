@@ -17,7 +17,7 @@ const Team = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
           <div className="md:w-[60%]">
             <h1 className="btnText lg:text-6xl text-3xl font-bold text-white">
-              Meet our team
+              Meet our Client
             </h1>
           </div>
           <div className="md:w-[35%] mt-4 md:mt-0">

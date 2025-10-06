@@ -101,7 +101,7 @@ export default function BannerPage() {
               placeholder="Enter location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="px-4 py-2 border rounded-lg focus:outline-none w-64"
+              className="px-4 py-2 border rounded-lg focus:outline-indigo-600 w-64"
             />
             {location && (
               <div className="absolute top-full z-50 left-0 w-full bg-white border rounded-lg mt-1 shadow-lg max-h-40 overflow-y-auto">
@@ -135,7 +135,7 @@ export default function BannerPage() {
               placeholder="Property type"
               value={propertyType}
               onChange={(e) => setPropertyType(e.target.value)}
-              className="px-4 py-2 border rounded-lg focus:outline-none w-64"
+              className="px-4 py-2 border rounded-lg focus:outline-indigo-600 w-64"
             />
             {propertyType && (
               <div className="absolute top-full z-50 left-0 w-full bg-white border rounded-lg mt-1 shadow-lg max-h-40 overflow-y-auto">
