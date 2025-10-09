@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
+    { name: "Map", path: "/map" },
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "Pricing", path: "/pricing" },
@@ -40,18 +41,16 @@ const Navbar = () => {
                 <li key={item.path} className="group relative">
                   <Link
                     href={item.path}
-                    className={`relative pb-1 text-lg transition-colors duration-300 ${
-                      pathname === item.path
-                        ? "text-blue-600"
-                        : "text-gray-700 hover:text-blue-600"
-                    }`}
+                    className={`relative pb-1 text-lg transition-colors duration-300 ${pathname === item.path
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                      }`}
                   >
                     {item.name}
                     {/* Animated underline */}
                     <span
-                      className={`absolute left-0 -bottom-0.5 h-[2px] bg-blue-600 transition-all duration-300 ${
-                        pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
+                      className={`absolute left-0 -bottom-0.5 h-[2px] bg-blue-600 transition-all duration-300 ${pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
                     ></span>
                   </Link>
                 </li>
@@ -62,7 +61,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="p-2  ">
-              {isOpen ? <X size={28}  className=" cursor-pointer " /> : <Menu size={28} className=" cursor-pointer " />}
+              {isOpen ? <X size={28} className=" cursor-pointer " /> : <Menu size={28} className=" cursor-pointer " />}
             </button>
           </div>
         </div>
@@ -75,11 +74,10 @@ const Navbar = () => {
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className={`block text-lg transition-colors duration-300 ${
-                      pathname === item.path
-                        ? "textColor"
-                        : " textColor hover:text-btnText"
-                    }`}
+                    className={`block text-lg transition-colors duration-300 ${pathname === item.path
+                      ? "textColor"
+                      : " textColor hover:text-btnText"
+                      }`}
                     onClick={() => setIsOpen(false)} // Close menu on click
                   >
                     {item.name}
