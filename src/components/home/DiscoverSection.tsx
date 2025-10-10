@@ -129,15 +129,7 @@ const DiscoverSection = () => {
                     </div>
                 </div>
 
-                {/* Bottom Decorative Elements */}
-                <div className="mt-16 flex justify-center space-x-4">
-                    {[1, 2, 3, 4].map((item) => (
-                        <div
-                            key={item}
-                            className="w-3 h-3 bg-gray-600 rounded-full opacity-50"
-                        ></div>
-                    ))}
-                </div>
+                
             </div>
         </section>
     );

@@ -109,14 +109,14 @@ const TestimonialSlider = () => {
                             className="flex transition-transform duration-500 ease-in-out"
                             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                         >
-                            {testimonialsData.testimonials.map((testimonial, index) => (
+                            {testimonialsData.testimonials.map((testimonial) => (
                                 <div
                                     key={testimonial.id}
                                     className="w-full flex-shrink-0 px-4"
                                 >
                                     <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
                                         {/* Quote Icon */}
-                                        <div className="text-6xl text-gray-200 mb-6">"</div>
+                                        <div className="text-6xl text-gray-200 mb-6">&quot;</div>
 
                                         {/* Testimonial Text */}
                                         <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
@@ -192,7 +192,7 @@ const TestimonialSlider = () => {
                             key={testimonial.id}
                             className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
                         >
-                            <div className="text-4xl text-gray-200 mb-4">"</div>
+                            <div className="text-4xl text-gray-200 mb-4">&quot;</div>
                             <blockquote className="text-gray-700 leading-relaxed mb-6">
                                 {testimonial.quote}
                             </blockquote>

@@ -11,10 +11,7 @@ import RealEstateNews from '@/components/home/RealEstateNews'
 import MapSections from '@/components/home/MapSections'
 import LadnMap from './LadnMap'
 import MapImageSlider from './MapImageSlider'
-import PricingPage from './PricingPage'
 import Faq from './Faq'
-import ServicesPage from './Services'
-import TrustedByExperts from './TrustedByExperts'
 
 const HomePage = () => {
   return (
@@ -35,10 +32,7 @@ const HomePage = () => {
       <Team />
       {/* process  */}
       <SetupProcess />
-      <PricingPage />
       <Faq />
-      <ServicesPage />
-      <TrustedByExperts />
     </div>
   )
 }
