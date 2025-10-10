@@ -1,0 +1,270 @@
+// "use client";
+
+// import { useState, useRef } from "react";
+// import classNames from "classnames";
+// import { SearchBox } from "@mapbox/search-js-react";
+// import mapboxgl from "mapbox-gl";
+
+// import Map, { accessToken } from "@/components/Map/index";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faMap, faList } from "@fortawesome/free-solid-svg-icons";
+
+// import Card from "@/components/MapAllinfo/Card";
+// import Modal from "@/components/MapAllinfo/Modal";
+// import { getFeatures } from "@/components/Map/util";
+// import housebuyLogo from "../../../public/img/housebuy-logo.svg";
+
+
+// import "../globals.css";
+// import { useSearchParams } from "next/navigation";
+
+// export default function MainMap() {
+//     // the data to be displayed on the map (this is static, but could be updated dynamically as the map view changes)
+//     const [currentViewData, setCurrentViewData] = useState([]);
+//     // stores the feature that the user is currently viewing (triggers the modal)
+//     const [activeFeature, setActiveFeature] = useState();
+//     // the current search value, used in the controlled mapbox-search-js input
+//     const [searchValue, setSearchValue] = useState("");
+//     // for toggling between map view and card view on small screens
+//     const [activeMobileView, setActiveMobileView] = useState("map");
+
+//     // a ref to hold the Mapbox GL JS Map instance
+//     const mapInstanceRef = useRef();
+
+//     // const [searchParams] = useSearchParams();
+//     // const hideHeaders = searchParams.get("hideHeaders");
+
+//     // when the map loads
+//     const handleMapLoad = (map) => {
+//         mapInstanceRef.current = map;
+//         setCurrentViewData(getFeatures());
+//     };
+
+//     // on click, set the active feature
+//     const handleFeatureClick = (feature) => {
+//         setActiveFeature(feature);
+//     };
+
+//     // when the modal is closed, clear the active feature
+//     const handleModalClose = () => {
+//         setActiveFeature(undefined);
+//     };
+
+//     // set the search value as the user types
+//     // const handleSearchChange = (newValue) => {
+//     //     setSearchValue(newValue);
+//     // };
+
+//     // toggle the map and card view on mobile devices
+//     const handleActiveMobileClick = () => {
+//         if (activeMobileView === "map") {
+//             setActiveMobileView("cards");
+//         } else {
+//             setActiveMobileView("map");
+//         }
+//     };
+
+//     return (
+//         <>
+//             {activeFeature && (
+//                 <Modal feature={activeFeature} onClose={handleModalClose} />
+//             )}
+//             <main className="flex flex-col h-full">
+//                 {/* {!hideHeaders && (
+//                     <>
+//                         <div className="flex shrink-0 justify-center h-16 items-center border-b border-gray-200 ">
+//                             <div
+//                                 className="bg-contain bg-center bg-no-repeat"
+//                                 style={{
+//                                     height: 30,
+//                                     width: 165,
+//                                     backgroundImage: `url(${housebuyLogo})`,
+//                                 }}
+//                             ></div>
+//                         </div>
+//                     </>
+//                 )} */}
+//                 <div className="relative lg:flex grow shrink min-h-0">
+//                     <div
+//                         className={classNames("grow shrink-0 relative h-full lg:h-auto", {
+//                             "z-30": activeMobileView === "map",
+//                         })}
+//                     >
+//                         {/* <div className="absolute top-3 left-3 z-10">
+//                             <SearchBox
+//                                 className="w-32"
+//                                 options={{
+//                                     proximity: [-75.16805, 39.93298],
+//                                     types: [
+//                                         "postcode",
+//                                         "place",
+//                                         "locality",
+//                                         "neighborhood",
+//                                         "street",
+//                                         "address",
+//                                     ],
+//                                 }}
+//                                 value={searchValue}
+//                                 onChange={handleSearchChange}
+//                                 accessToken={accessToken}
+//                                 marker
+//                                 mapboxgl={mapboxgl}
+//                                 placeholder="Search for an address, city, zip, etc"
+//                                 map={mapInstanceRef.current}
+//                                 theme={{
+//                                     variables: {
+//                                         fontFamily: '"Open Sans", sans-serif',
+//                                         fontWeight: 300,
+//                                         unit: "16px",
+//                                         borderRadius: "8px",
+//                                         boxShadow: "0px 2.44px 9.75px 0px rgba(95, 126, 155, 0.2)",
+//                                     },
+//                                 }}
+//                             />
+//                         </div> */}
+//                         <Map
+//                             data={currentViewData}
+//                             onLoad={handleMapLoad}
+//                             onFeatureClick={handleFeatureClick}
+//                         />
+//                     </div>
+//                     {/* sidebar */}
+//                     <div className="absolute lg:static top-0 p-4 w-full lg:w-96 shadow-xl z-10 overflow-scroll lg:z-30 h-full lg:h-auto bg-white">
+//                         <div className="text-2xl text-black font-semibold w-full mb-1.5">
+//                             Listings in this Area
+//                         </div>
+//                         <div className="mb-4">
+//                             <div className="font-medium text-gray-500">
+//                                 {currentViewData.length} results
+//                             </div>
+//                         </div>
+//                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+//                             {currentViewData.map((feature, i) => {
+//                                 return (
+//                                     <div key={i} className="mb-1.5">
+//                                         <Card feature={feature} onClick={handleFeatureClick} />
+//                                     </div>
+//                                 );
+//                             })}
+//                         </div>
+//                     </div>
+//                     {/* end sidebar */}
+//                 </div>
+//             </main>
+//             <div
+//                 className="absolute z-30 bottom-5 left-1/2 transform -translate-x-1/2 lg:hidden"
+//                 onClick={handleActiveMobileClick}
+//             >
+//                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+//                     <FontAwesomeIcon
+//                         icon={activeMobileView === "map" ? faList : faMap}
+//                         className="mr-2"
+//                     />
+//                     {activeMobileView === "map" ? "Cards" : "Map"}
+//                 </button>
+//             </div>
+//         </>
+//     );
+// }
+
+
+"use client";
+
+import { useState, useRef } from "react";
+import classNames from "classnames";
+import mapboxgl from "mapbox-gl";
+
+import Map, { accessToken } from "@/components/Map/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMap, faList } from "@fortawesome/free-solid-svg-icons";
+
+import Card from "@/components/MapAllinfo/Card";
+import Modal from "@/components/MapAllinfo/Modal";
+import { getFeatures } from "@/components/Map/util";
+
+import "../globals.css";
+import { FeatureType } from "@/lib/type";
+import MapboxDraw from "@mapbox/mapbox-gl-draw";
+
+
+export default function MainMap() {
+    const [currentViewData, setCurrentViewData] = useState<FeatureType[]>([]);
+    const [activeFeature, setActiveFeature] = useState<FeatureType | undefined>();
+    const [activeMobileView, setActiveMobileView] = useState<"map" | "cards">("map");
+
+    const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
+
+    const handleMapLoad = (map: mapboxgl.Map) => {
+        mapInstanceRef.current = map;
+        setCurrentViewData(getFeatures());
+    };
+
+    const handleFeatureClick = (feature: FeatureType) => {
+        setActiveFeature(feature);
+    };
+
+    const handleModalClose = () => {
+        setActiveFeature(undefined);
+    };
+
+    const handleActiveMobileClick = () => {
+        setActiveMobileView(activeMobileView === "map" ? "cards" : "map");
+    };
+
+    return (
+        <>
+            {activeFeature && (
+                <Modal feature={activeFeature} onClose={handleModalClose} />
+            )}
+
+            <main className="flex flex-col h-full">
+                <div className="relative lg:flex grow shrink min-h-0">
+                    <div
+                        className={classNames("grow shrink-0 mt-20 relative h-full lg:h-auto", {
+                            "z-30": activeMobileView === "map",
+                        })}
+                    >
+                        <Map
+                            data={currentViewData}
+                            onLoad={handleMapLoad}
+                            onFeatureClick={handleFeatureClick}
+                        />
+                    </div>
+
+                    {/* Sidebar */}
+                    <div className="absolute py-20 lg:static top-0 p-4 w-full lg:w-96 shadow-xl z-10 overflow-scroll lg:z-30 h-full lg:h-auto bg-white">
+                        <div className="text-2xl text-black font-semibold w-full mb-1.5">
+                            Listings in this Area
+                        </div>
+                        <div className="mb-4">
+                            <div className="font-medium text-gray-500">
+                                {currentViewData.length} results
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                            {currentViewData.map((feature, i) => (
+                                <div key={i} className="mb-1.5">
+                                    <Card feature={feature} onClick={handleFeatureClick} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            {/* Mobile Toggle */}
+            <div
+                className="absolute z-30 bottom-5 left-1/2 transform -translate-x-1/2 lg:hidden"
+                onClick={handleActiveMobileClick}
+            >
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <FontAwesomeIcon
+                        icon={activeMobileView === "map" ? faList : faMap}
+                        className="mr-2"
+                    />
+                    {activeMobileView === "map" ? "Cards" : "Map"}
+                </button>
+            </div>
+        </>
+    );
+}

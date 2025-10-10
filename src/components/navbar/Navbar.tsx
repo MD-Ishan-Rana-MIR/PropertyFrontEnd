@@ -12,8 +12,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Map", path: "/map" },
     { name: "Home", path: "/" },
+    { name: "Map", path: "/map" },
     { name: "Services", path: "/services" },
     { name: "Pricing", path: "/pricing" },
   ];

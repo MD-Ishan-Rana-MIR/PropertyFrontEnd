@@ -78,6 +78,43 @@
   transition: background 0.2s ease;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.react-tooltip {
+  pointer-events: auto !important;
+}
+
 .fly-to-btn:hover {
   background: #eee;
 }
@@ -161,13 +198,13 @@
 }
 
 .swiper-button-prev {
-    height: 18px !important;
-    font-weight: 900 !important;
-    color: black !important;
+  height: 18px !important;
+  font-weight: 900 !important;
+  color: black !important;
 }
 
 .swiper-button-next {
-     height: 18px !important;
-    font-weight: 900 !important;
-    color: black !important;
+  height: 18px !important;
+  font-weight: 900 !important;
+  color: black !important;
 }
